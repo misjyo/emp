@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import { Routes, Route, useNavigate } from "react-router-dom"
 import { useEffect, useContext, useState } from "react";
 import { LoginContext } from "./components/ContextProvider/Context";
+import Addemployee from "./components/employee/Addemployee";
 
 
 function App() {
@@ -50,10 +51,10 @@ function App() {
   }, [])
 
   return (
-    <>
+    <div>
       {
         data ? (
-          <>
+          <div>
             <Header />
 
             <Routes>
@@ -62,7 +63,7 @@ function App() {
               <Route path="/dash" element={<Dashboard />} />
               <Route path="*" element={<Error />} />
             </Routes>
-          </>
+          </div>
 
         ) : <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "100vh" }}>
           Loading... &nbsp;
@@ -70,8 +71,8 @@ function App() {
         </Box>
       }
 
-
-    </>
+{/* <Addemployee/> */}
+    </div>
   );
 }
 

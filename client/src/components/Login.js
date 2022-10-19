@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink ,useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./mix.css"
 
 const Login = () => {
@@ -49,7 +50,7 @@ const Login = () => {
                 position: "top-center"
             });
         } else {
-            // console.log("user login succesfully done");
+            console.log("user login succesfully done");
 
 
             const data = await fetch("/login",{
@@ -66,6 +67,9 @@ const Login = () => {
             //  console.log(res);
 
             if(res.status === 201){
+                toast.success("login Successfully  😃!", {
+                    position: "top-center",
+                });
                 localStorage.setItem("usersdatatoken",res.result.token);
                 history("/dash")
                 setInpval({...inpval,email:"",password:""});
@@ -74,12 +78,12 @@ const Login = () => {
     }
 
     return (
-        <>
+        <div>
             <section>
                 <div className="form_data">
                     <div className="form_heading">
-                        <h1>Welcome Back, Log In</h1>
-                        <p>Hi, we are you glad you are back. Please login.</p>
+                        <h1>Log In</h1>
+                        
                     </div>
 
                     <form>
@@ -103,7 +107,7 @@ const Login = () => {
                     <ToastContainer />
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

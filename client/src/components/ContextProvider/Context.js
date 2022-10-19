@@ -8,11 +8,11 @@ const Context = ({children}) => {
     const [logindata,setLoginData] = useState("");
 
   return (
-    <>
+    <div>
     <LoginContext.Provider value={{logindata,setLoginData}}>
         {children}
     </LoginContext.Provider>
-    </>
+    </div>
   )
 }
 
